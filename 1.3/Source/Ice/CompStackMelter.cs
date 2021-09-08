@@ -15,7 +15,7 @@ namespace Ice
 
 		public override void CompTickRare()
 		{
-			if (parent.Position.GetThingList(this.parent.Map).Any(x => x.def == Things.IceVault))
+			if (parent.Position.GetThingList(this.parent.Map).Any(x => x.def == Things.Cellar))
             {
 				return;
             }
