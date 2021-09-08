@@ -11,7 +11,7 @@ namespace Ice
 
 		public override bool DragDrawMeasurements => true;
 
-		public override DesignationDef Designation => Designations.DoDigIce;
+		public override DesignationDef Designation => Designations.Ice_DoDigIce;
 
 		public Designator_DigIce()
 		{
@@ -41,7 +41,7 @@ namespace Ice
 				return false;
 			}
 			TerrainDef terrainDef = base.Map.terrainGrid.TerrainAt(c);
-			if (terrainDef != IceTerrain.Ice && terrainDef != IceTerrain.IceShallow)
+			if (terrainDef != IceTerrain.Ice && terrainDef != IceTerrain.Ice_IceShallow)
 			{
 				return "Ice.MustBeIce".Translate();
 			}

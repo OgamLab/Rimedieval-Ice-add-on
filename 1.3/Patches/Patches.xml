@@ -55,7 +55,7 @@
                 <order>Append</order>
                 <value>
                     <li Class="StockGenerator_SingleDef">
-                        <thingDef>Resource_IceBlocks</thingDef>
+                        <thingDef>Ice_Resource_IceBlocks</thingDef>
                         <countRange>
                         <min>0</min>
                         <max>30</max>
@@ -73,7 +73,7 @@
                 <order>Append</order>
                 <value>
                     <li Class="StockGenerator_SingleDef">
-                        <thingDef>Resource_IceBlocks</thingDef>
+                        <thingDef>Ice_Resource_IceBlocks</thingDef>
                         <countRange>
                         <min>0</min>
                         <max>300</max>
@@ -91,7 +91,7 @@
                 <order>Append</order>
                 <value>
                     <li Class="StockGenerator_SingleDef">
-                        <thingDef>Resource_IceBlocks</thingDef>
+                        <thingDef>Ice_Resource_IceBlocks</thingDef>
                         <countRange>
                         <min>0</min>
                         <max>600</max>
@@ -109,7 +109,7 @@
                 <order>Append</order>
                 <value>
                     <li Class="StockGenerator_SingleDef">
-                        <thingDef>Resource_IceBlocks</thingDef>
+                        <thingDef>Ice_Resource_IceBlocks</thingDef>
                         <countRange>
                         <min>0</min>
                         <max>60</max>

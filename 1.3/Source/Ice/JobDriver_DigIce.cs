@@ -12,15 +12,15 @@ namespace Ice
 
 		public override int BaseWorkAmount => 400;
 
-		public override DesignationDef DesDef => Designations.DoDigIce;
+		public override DesignationDef DesDef => Designations.Ice_DoDigIce;
 
 		public override StatDef SpeedStat => StatDefOf.MiningSpeed;
 
 		public override void DoEffect(IntVec3 c)
 		{
-			Thing thing = ThingMaker.MakeThing(Things.Resource_IceBlocks);
+			Thing thing = ThingMaker.MakeThing(Things.Ice_Resource_IceBlocks);
 			thing.stackCount = 2;
-			if (base.Map.terrainGrid.TerrainAt(c) == IceTerrain.IceShallow)
+			if (base.Map.terrainGrid.TerrainAt(c) == IceTerrain.Ice_IceShallow)
 			{
 				int mapIndex = base.Map.cellIndices.CellToIndex(c);
 				IceMapComponent.Instance.RemoveIceFromTile(mapIndex);

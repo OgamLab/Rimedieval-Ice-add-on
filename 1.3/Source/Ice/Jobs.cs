@@ -6,6 +6,6 @@ namespace Ice
 	[DefOf]
 	public class Jobs
 	{
-		public static JobDef DigIce;
+		public static JobDef Ice_DigIce;
 	}
 }

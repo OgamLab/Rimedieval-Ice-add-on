@@ -2,7 +2,7 @@
 <Defs>
 	<ThingDef ParentName="LWM_DeepStorage">
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-		<defName>MedievalFridge</defName>
+		<defName>Ice_MedievalFridge</defName>
 		<label>Medieval fridge</label>
 		<description>Simple refrigerator. Requires ice to cool.</description>
 		<graphicData>
@@ -43,7 +43,7 @@
 				<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
 				<fuelFilter>
 					<thingDefs>
-						<li>Resource_IceBlocks</li>
+						<li>Ice_Resource_IceBlocks</li>
 					</thingDefs>
 				</fuelFilter>
 				<initialFuelPercent>1</initialFuelPercent>
@@ -70,7 +70,7 @@
 		<staticSunShadowHeight>0.6</staticSunShadowHeight>
 		<defaultPlacingRot>South</defaultPlacingRot>
 		<researchPrerequisites>
-			<li>MedievalFridge</li>
+			<li>Ice_MedievalFridge</li>
 		</researchPrerequisites>
 	</ThingDef>
 

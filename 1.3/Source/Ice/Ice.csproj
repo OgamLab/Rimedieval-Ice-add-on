@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buildings.cs" />
     <Compile Include="Patches\PlaceSpotQualityAt_Patch.cs" />
     <Compile Include="PlaceWorker_OnSoil.cs" />
     <Compile Include="CompHitpointRefuelable.cs" />

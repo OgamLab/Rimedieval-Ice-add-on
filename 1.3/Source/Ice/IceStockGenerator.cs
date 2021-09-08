@@ -14,14 +14,14 @@ namespace Ice
 
 		public override bool HandlesThingDef(ThingDef thingDef)
 		{
-			return thingDef == Things.Resource_IceBlocks;
+			return thingDef == Things.Ice_Resource_IceBlocks;
 		}
 
 		public override IEnumerable<Thing> GenerateThings(int mapTileIndex, Faction faction)
 		{
 			Current.Game.World.tileTemperatures.GetOutdoorTemp(mapTileIndex);
 			bool isColony = Current.Game.World.worldObjects.AnySettlementAt(mapTileIndex);
-			foreach (Thing thing in StockGeneratorUtility.TryMakeForStock(Things.Resource_IceBlocks, RandomCountOf(Things.Resource_IceBlocks), faction))
+			foreach (Thing thing in StockGeneratorUtility.TryMakeForStock(Things.Ice_Resource_IceBlocks, RandomCountOf(Things.Ice_Resource_IceBlocks), faction))
 			{
 				if (!isColony)
 				{

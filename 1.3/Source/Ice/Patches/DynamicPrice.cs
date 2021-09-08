@@ -13,7 +13,7 @@ namespace Ice.Patches
 	{
 		public static void Postfix(Tradeable __instance, ref PriceType __result, TradeAction action)
 		{
-			if (__instance.ThingDef != Things.Resource_IceBlocks)
+			if (__instance.ThingDef != Things.Ice_Resource_IceBlocks)
 			{
 				return;
 			}

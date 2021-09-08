@@ -6,6 +6,6 @@ namespace Ice
 	[DefOf]
 	public class Designations
 	{
-		public static DesignationDef DoDigIce;
+		public static DesignationDef Ice_DoDigIce;
 	}
 }

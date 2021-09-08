@@ -97,7 +97,7 @@ namespace Ice
 
 		public static bool CanCooldown(TerrainDef type)
 		{
-			return type == IceTerrain.WaterDeep || type == IceTerrain.WaterShallow || type == IceTerrain.Marsh || type == IceTerrain.IceShallow || type == IceTerrain.FrozenMarsh || (type.defName.Contains("Water") && !type.defName.Contains("Salt") && !type.defName.Contains("Moving") && !type.defName.Contains("Ocean"));
+			return type == IceTerrain.WaterDeep || type == IceTerrain.WaterShallow || type == IceTerrain.Marsh || type == IceTerrain.Ice_IceShallow || type == IceTerrain.Ice_FrozenMarsh || (type.defName.Contains("Water") && !type.defName.Contains("Salt") && !type.defName.Contains("Moving") && !type.defName.Contains("Ocean"));
 		}
 
 		public static bool CanFreeze(TerrainDef type)
@@ -112,12 +112,12 @@ namespace Ice
 
 		public static bool IsIce(TerrainDef type)
 		{
-			return type == IceTerrain.Ice || type == IceTerrain.IceShallow;
+			return type == IceTerrain.Ice || type == IceTerrain.Ice_IceShallow;
 		}
 
 		public static bool IsFrozen(TerrainDef type)
 		{
-			return IsIce(type) || type == IceTerrain.FrozenMarsh;
+			return IsIce(type) || type == IceTerrain.Ice_FrozenMarsh;
 		}
 
 		private void WarmupTile(int mapIndex, float temp)
@@ -170,7 +170,7 @@ namespace Ice
 			{
 				TemporarilyRemovedTerrain.Remove(mapIndex);
 				map.terrainGrid.SetTerrain(vec, value);
-				map.designationManager.allDesignations.Remove(map.designationManager.allDesignations.SingleOrDefault((Designation x) => x.target == vec && x.def == Designations.DoDigIce));
+				map.designationManager.allDesignations.Remove(map.designationManager.allDesignations.SingleOrDefault((Designation x) => x.target == vec && x.def == Designations.Ice_DoDigIce));
 				terrainDef = value;
 			}
 			else if (IsFrozen(map.terrainGrid.TerrainAt(mapIndex)))
@@ -237,11 +237,11 @@ namespace Ice
 				TemporarilyRemovedTerrain.Add(mapIndex, type);
 				if (flag)
 				{
-					map.terrainGrid.SetTerrain(vec, IceTerrain.FrozenMarsh);
+					map.terrainGrid.SetTerrain(vec, IceTerrain.Ice_FrozenMarsh);
 				}
 				else
 				{
-					map.terrainGrid.SetTerrain(vec, IceTerrain.IceShallow);
+					map.terrainGrid.SetTerrain(vec, IceTerrain.Ice_IceShallow);
 				}
 			}
 		}

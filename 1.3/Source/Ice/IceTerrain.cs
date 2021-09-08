@@ -12,10 +12,10 @@ namespace Ice
 
 		public static TerrainDef Marsh;
 
-		public static TerrainDef FrozenMarsh;
+		public static TerrainDef Ice_FrozenMarsh;
 
 		public static TerrainDef Ice;
 
-		public static TerrainDef IceShallow;
+		public static TerrainDef Ice_IceShallow;
 	}
 }

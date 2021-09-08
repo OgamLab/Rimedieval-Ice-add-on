@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <ThingDef ParentName="Wall">
-    <defName>Wall_Ice</defName>
+    <defName>Ice_Wall_Ice</defName>
     <label>Ice Wall</label>
     <description>This is an ice wall that will cool its surroundings but needs to be refueled.</description>
 
@@ -20,7 +20,7 @@
     </statBases>
 
     <costList>
-	    <Resource_IceBlocks>5</Resource_IceBlocks>
+	    <Ice_Resource_IceBlocks>5</Ice_Resource_IceBlocks>
     </costList>		
 
     <tickerType>Normal</tickerType>
@@ -39,7 +39,7 @@
         <fuelCapacity>5.0</fuelCapacity>	
         <fuelLabel>Ice Thickness</fuelLabel>
         <initialFuelPercent>1</initialFuelPercent>
-        <fuelFilter><thingDefs><li>Resource_IceBlocks</li></thingDefs></fuelFilter>
+        <fuelFilter><thingDefs><li>Ice_Resource_IceBlocks</li></thingDefs></fuelFilter>
       </li>	
       <li Class="CompProperties_HeatPusher">
         <compClass>CompHeatPusher</compClass>

@@ -6,8 +6,8 @@ namespace Ice
 	[DefOf]
 	public class Things
 	{
-		public static ThingDef Resource_IceBlocks;
-		public static ThingDef Cellar;
-		public static ThingDef MedievalFridge;
+		public static ThingDef Ice_Resource_IceBlocks;
+		public static ThingDef Ice_Cellar;
+		public static ThingDef Ice_MedievalFridge;
 	}
 }

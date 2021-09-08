@@ -25,7 +25,7 @@ namespace Ice.Patches
     {
         public static void Prefix(Thing t, bool roofed, bool roomUsesOutdoorTemperature, ref bool protectedByEdifice, TerrainDef terrain, ref float __result, List<string> reasons)
         {
-            if (t?.Map != null && t.Position.GetThingList(t.Map).Any(x => x.def == Things.Cellar || x.def == Things.MedievalFridge && x.TryGetComp<CompRefuelable>().HasFuel))
+            if (t?.Map != null && t.Position.GetThingList(t.Map).Any(x => x.def == Things.Ice_Cellar || x.def == Things.Ice_MedievalFridge && x.TryGetComp<CompRefuelable>().HasFuel))
             {
                 protectedByEdifice = true;
             }
@@ -37,7 +37,7 @@ namespace Ice.Patches
     {
         public static bool Prefix(Thing t, bool roofed, bool roomUsesOutdoorTemperature, bool protectedByEdifice, TerrainDef terrain)
         {
-            if (t?.Map != null && t.Position.GetThingList(t.Map).Any(x => x.def == Things.Cellar || x.def == Things.MedievalFridge && x.TryGetComp<CompRefuelable>().HasFuel))
+            if (t?.Map != null && t.Position.GetThingList(t.Map).Any(x => x.def == Things.Ice_Cellar || x.def == Things.Ice_MedievalFridge && x.TryGetComp<CompRefuelable>().HasFuel))
             {
                 return false;
             }
@@ -51,7 +51,7 @@ namespace Ice.Patches
         public static bool Prefix(CompRottable __instance, ref bool __result)
         {
             if (__instance.parent?.Map != null && __instance.parent.Position.GetThingList(__instance.parent.Map)
-                .Any(x => x.def == Things.Cellar || x.def == Things.MedievalFridge && x.TryGetComp<CompRefuelable>().HasFuel))
+                .Any(x => x.def == Things.Ice_Cellar || x.def == Things.Ice_MedievalFridge && x.TryGetComp<CompRefuelable>().HasFuel))
             {
                 __result = false;
                 return false;
@@ -72,7 +72,7 @@ namespace Ice.Patches
             }
             if (__result == PlaceSpotQuality.Bad)
             {
-                if (c.GetFirstBuilding(map)?.def == Things.Cellar)
+                if (c.GetFirstBuilding(map)?.def == Things.Ice_Cellar)
                 {
                     __result = PlaceSpotQuality.Perfect;
                 }
@@ -86,7 +86,7 @@ namespace Ice.Patches
     {
         public static bool Prefix(Pawn pawn, IBillGiver giver, Thing thingToIgnore)
         {
-            if (giver is Building_WorkTable workTable && workTable.def == Things.Cellar)
+            if (giver is Building_WorkTable workTable && workTable.def == Things.Ice_Cellar)
             {
                 return false;
             }

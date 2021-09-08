@@ -2,7 +2,7 @@
 <Defs>
 
   <WorkGiverDef>
-    <defName>DigIce</defName>
+    <defName>Ice_DigIce</defName>
     <label>Dig ice blocks</label>
     <giverClass>Ice.WorkGiver_ConstructDigIce</giverClass>
     <workType>Mining</workType>

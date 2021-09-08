@@ -79,7 +79,7 @@
 <!-- ========= Sculptures ========= -->
 <!-- Small Ice Sculpture --> 
   <ThingDef ParentName="IceArtworkSculpture">
-    <defName>IceSculptureSmall</defName>
+    <defName>Ice_IceSculptureSmall</defName>
     <label>Small Ice Sculpture</label>
     <description>A torso-sized piece of material sculpted into an artistic form.</description>
     <graphicData>
@@ -97,7 +97,7 @@
       <WorkToMake>12000</WorkToMake>
     </statBases>
     <costList>
-	  <Resource_IceBlocks>50</Resource_IceBlocks>
+	  <Ice_Resource_IceBlocks>50</Ice_Resource_IceBlocks>
     </costList>	
     <comps>
       <li Class="Ice.CompProperties_HitpointRefuelable">  
@@ -106,14 +106,14 @@
         <fuelCapacity>15.0</fuelCapacity>	
         <fuelLabel>Ice Thickness</fuelLabel>
         <initialFuelPercent>1</initialFuelPercent>
-        <fuelFilter><thingDefs><li>Resource_IceBlocks</li></thingDefs></fuelFilter>
+        <fuelFilter><thingDefs><li>Ice_Resource_IceBlocks</li></thingDefs></fuelFilter>
       </li>	
     </comps>
   </ThingDef>
 
 <!-- Large Ice Sculpture -->   
   <ThingDef ParentName="IceArtworkSculpture">
-    <defName>IceSculptureLarge</defName>
+    <defName>Ice_IceSculptureLarge</defName>
     <label>Large Ice Sculpture</label>
     <description>A person-sized piece of material sculpted into an artistic form.</description>
     <graphicData>
@@ -132,7 +132,7 @@
 			<WorkToMake>20000</WorkToMake>
 	</statBases>
     <costList>
-	  <Resource_IceBlocks>75</Resource_IceBlocks>
+	  <Ice_Resource_IceBlocks>75</Ice_Resource_IceBlocks>
     </costList>	
     <comps>
       <li Class="Ice.CompProperties_HitpointRefuelable">  
@@ -141,14 +141,14 @@
         <fuelCapacity>30.0</fuelCapacity>	
         <fuelLabel>Ice Thickness</fuelLabel>
         <initialFuelPercent>1</initialFuelPercent>
-        <fuelFilter><thingDefs><li>Resource_IceBlocks</li></thingDefs></fuelFilter>
+        <fuelFilter><thingDefs><li>Ice_Resource_IceBlocks</li></thingDefs></fuelFilter>
       </li>	
     </comps>
   </ThingDef>
 
 <!-- Grand Ice Sculpture -->   
   <ThingDef ParentName="IceArtworkSculpture">
-    <defName>IceSculptureGrand</defName>
+    <defName>Ice_IceSculptureGrand</defName>
     <label>Grand Ice Sculpture</label>
     <description>A car-sized piece of material sculpted into an artistic form.</description>
     <graphicData>
@@ -168,7 +168,7 @@
 			<WorkToMake>45000</WorkToMake>
     </statBases>
     <costList>
-	  <Resource_IceBlocks>150</Resource_IceBlocks>
+	  <Ice_Resource_IceBlocks>150</Ice_Resource_IceBlocks>
     </costList>	
     <comps>
       <li Class="Ice.CompProperties_HitpointRefuelable">  
@@ -177,7 +177,7 @@
         <fuelCapacity>50.0</fuelCapacity>	
         <fuelLabel>Ice Thickness</fuelLabel>
         <initialFuelPercent>1</initialFuelPercent>
-        <fuelFilter><thingDefs><li>Resource_IceBlocks</li></thingDefs></fuelFilter>
+        <fuelFilter><thingDefs><li>Ice_Resource_IceBlocks</li></thingDefs></fuelFilter>
       </li>	
     </comps>
   </ThingDef>

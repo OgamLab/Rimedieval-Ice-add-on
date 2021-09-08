@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <TerrainDef ParentName="Ice">
-    <defName>IceShallow</defName>
+    <defName>Ice_IceShallow</defName>
     <label>shallow ice</label>
     <changeable>false</changeable>
   </TerrainDef>
 
   <TerrainDef>
-    <defName>FrozenMarsh</defName>
+    <defName>Ice_FrozenMarsh</defName>
     <label>frozen marsh</label>
-    <texturePath>Terrain/Surfaces/FrozenMarsh</texturePath>
+    <texturePath>Terrain/Surfaces/Ice_FrozenMarsh</texturePath>
     <edgeType>FadeRough</edgeType>
     <renderPrecedence>338</renderPrecedence>
     <pathCost>13</pathCost>

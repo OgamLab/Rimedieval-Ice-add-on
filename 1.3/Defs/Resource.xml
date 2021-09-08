@@ -19,7 +19,7 @@
   </ThingDef>
 
   <ThingDef ParentName="IceResourceBase">
-    <defName>Resource_IceBlocks</defName>
+    <defName>Ice_Resource_IceBlocks</defName>
     <label>Ice</label>
     <description>Water which has been frozen to create blocks of ice. Will melt in temperatures above freezing.</description>
     <graphicData>
@@ -42,7 +42,7 @@
       <stuffAdjective>Ice</stuffAdjective>
       <appearance>Bricks</appearance>	  
       <categories>
-        <li>Ice</li>		
+        <li>Ice_Ice</li>		
       </categories>  
       <color>(180,210,230)</color>
       <commonality>0.01</commonality>

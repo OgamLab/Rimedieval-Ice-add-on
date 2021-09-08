@@ -3,7 +3,7 @@
 
 
 	<RecipeDef>
-		<defName>Make_Ice</defName>
+		<defName>Ice_Make_Ice</defName>
 		<label>make ice</label>
 		<description>Make ice from water.</description>
 		<jobString>Making ice.</jobString>
@@ -12,14 +12,14 @@
 		<effectWorking>CutStone</effectWorking>
 		<soundWorking>Recipe_Sculpt</soundWorking>
 		<products>
-			<Resource_IceBlocks>25</Resource_IceBlocks>
+			<Ice_Resource_IceBlocks>25</Ice_Resource_IceBlocks>
 		</products>
 	</RecipeDef>
 
 	<ThingDef ParentName="BuildingBase">
-		<defName>Cellar</defName>
-		<label>Cellar</label>
-		<description>The cellar is designed to cool water and extract ice from it.</description>
+		<defName>Ice_Cellar</defName>
+		<label>сellar</label>
+		<description>The сellar is designed to cool water and extract ice from it.</description>
 		<thingClass>Building_WorkTable</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Vault/Vault</texPath>
@@ -40,7 +40,7 @@
 		<interactionCellOffset>(0,0,1)</interactionCellOffset>
 		<surfaceType>Item</surfaceType>
 		<recipes>
-			<li>Make_Ice</li>
+			<li>Ice_Make_Ice</li>
 		</recipes>
 		<stuffCategories>
 			<li>Stony</li>
@@ -66,18 +66,18 @@
 			<li>Ice.PlaceWorker_OnSoil</li>
 		</placeWorkers>
 		<researchPrerequisites>
-			<li>IceCurving</li>
+			<li>Ice_IceCurving</li>
 		</researchPrerequisites>
 	</ThingDef>
 
 	<WorkGiverDef>
-		<defName>DoBillsMakeIce</defName>
+		<defName>Ice_DoBillsMakeIce</defName>
 		<label>make ice at vault</label>
 		<giverClass>WorkGiver_DoBill</giverClass>
 		<workType>Crafting</workType>
 		<priorityInType>100</priorityInType>
 		<fixedBillGiverDefs>
-			<li>Cellar</li>
+			<li>Ice_Cellar</li>
 		</fixedBillGiverDefs>
 		<verb>make ice</verb>
 		<gerund>make ice at</gerund>
