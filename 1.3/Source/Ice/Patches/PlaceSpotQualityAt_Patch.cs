@@ -66,17 +66,17 @@ namespace Ice.Patches
     {
         public static void Postfix(ref PlaceSpotQuality __result, IntVec3 c, Rot4 rot, Map map, Thing thing, IntVec3 center, bool allowStacking, Predicate<IntVec3> extraValidator = null)
         {
-            foreach (var pawn in map.mapPawns.FreeColonists)
+            try
             {
-                pawn.jobs.debugLog = true;
-            }
-            if (__result == PlaceSpotQuality.Bad)
-            {
-                if (c.GetFirstBuilding(map)?.def == Things.Ice_Cellar)
+                if (c != null && map != null && __result == PlaceSpotQuality.Bad)
                 {
-                    __result = PlaceSpotQuality.Perfect;
+                    if (c.GetFirstBuilding(map)?.def == Things.Ice_Cellar)
+                    {
+                        __result = PlaceSpotQuality.Perfect;
+                    }
                 }
             }
+            catch { }
         }
     }
 
