@@ -9,17 +9,11 @@ namespace Ice
 	public class CompHitpointRefuelable : CompRefuelable
 	{
 		private CompHeatPusher heatPusher;
-
-		private static PropertyInfo ShouldPushHeatNow { get; } = AccessTools.Property(typeof(CompHeatPusher), "ShouldPushHeatNow");
-
-
-		private static FieldInfo fuel { get; } = AccessTools.Field(typeof(CompRefuelable), "fuel");
-
-
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			base.PostSpawnSetup(respawningAfterLoad);
 			heatPusher = parent.GetComp<CompHeatPusher>();
+			shouldPushHeat = heatPusher.ShouldPushHeatNow;
 		}
 
 		public override void ReceiveCompSignal(string signal)
@@ -28,14 +22,14 @@ namespace Ice
 			if (signal == "Refueled")
 			{
 				int maxHitPoints = parent.MaxHitPoints;
-				int hP = (int)Math.Ceiling((float)fuel.GetValue(this) / base.Props.fuelCapacity * (float)maxHitPoints);
+				int hP = (int)Math.Ceiling(this.fuel / base.Props.fuelCapacity * (float)maxHitPoints);
 				SetHP(hP);
 			}
 		}
 
 		public override string CompInspectStringExtra()
 		{
-			float num = (float)fuel.GetValue(this);
+			float num = this.fuel;
 			int num2 = (int)Math.Round(num / base.Props.fuelCapacity * 100f);
 			string text = $"{base.Props.FuelLabel}: {num2}%";
 			if (!base.Props.consumeFuelOnlyWhenUsed && base.HasFuel)
@@ -54,23 +48,28 @@ namespace Ice
 			return text;
 		}
 
+		private bool shouldPushHeat;
 		public override void CompTick()
 		{
-			int maxHitPoints = parent.MaxHitPoints;
-			int hitPoints = parent.HitPoints;
-			float num = (float)hitPoints / (float)maxHitPoints * base.Props.fuelCapacity;
-			if (num < (float)fuel.GetValue(this))
-			{
-				fuel.SetValue(this, num);
-			}
-			if (heatPusher == null || (bool)ShouldPushHeatNow.GetValue(heatPusher, null))
-			{
+			if (shouldPushHeat)
+            {
 				base.CompTick();
 			}
-			int num2 = (int)Math.Ceiling((float)fuel.GetValue(this) / base.Props.fuelCapacity * (float)maxHitPoints);
-			if (num2 < hitPoints)
-			{
-				SetHP(num2);
+			if (parent.IsHashIntervalTick(60))
+            {
+				int maxHitPoints = parent.MaxHitPoints;
+				int hitPoints = parent.HitPoints;
+				float num = (float)hitPoints / (float)maxHitPoints * base.Props.fuelCapacity;
+				if (num < this.fuel)
+				{
+					this.fuel = num;
+				}
+				shouldPushHeat = heatPusher.ShouldPushHeatNow;
+				int num2 = (int)Math.Ceiling(fuel / base.Props.fuelCapacity * (float)maxHitPoints);
+				if (num2 < hitPoints)
+				{
+					SetHP(num2);
+				}
 			}
 		}
 
