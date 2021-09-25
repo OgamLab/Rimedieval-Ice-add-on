@@ -180,6 +180,7 @@ namespace Ice
 			}
 			ThawSpeed.Remove(mapIndex);
 			IceDepth.Remove(mapIndex);
+
 			Thing[] array = map.thingGrid.ThingsAt(vec).ToArray();
 			foreach (Thing thing in array)
 			{
@@ -187,7 +188,7 @@ namespace Ice
 				{
 					thing.Destroy();
 				}
-				else if (!(thing is Pawn) && (terrainDef == IceTerrain.WaterDeep || terrainDef.defName.Contains("Deep")))
+				else if (!(thing is Pawn) && (terrainDef == IceTerrain.WaterDeep || (terrainDef?.defName?.Contains("Deep") ?? false)))
 				{
 					thing.Destroy();
 				}
