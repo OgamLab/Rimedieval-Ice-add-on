@@ -23,7 +23,7 @@ namespace Ice
 			if (base.Map.terrainGrid.TerrainAt(c) == IceTerrain.Ice_IceShallow)
 			{
 				int mapIndex = base.Map.cellIndices.CellToIndex(c);
-				IceMapComponent.Instance.RemoveIceFromTile(mapIndex);
+				base.Map.GetComponent<IceMapComponent>().RemoveIceFromTile(mapIndex);
 			}
 			GenPlace.TryPlaceThing(thing, base.TargetLocA, base.Map, ThingPlaceMode.Near);
 		}

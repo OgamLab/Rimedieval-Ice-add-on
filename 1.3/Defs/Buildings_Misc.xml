@@ -66,6 +66,10 @@
 					</categories>
 				</filter>
 			</fixedStorageSettings>
+			<blueprintGraphicData>
+				<texPath>Things/Building/MedievalFridge/MedievalFridgeBlueprint</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+			</blueprintGraphicData>
 		</building>
 		<staticSunShadowHeight>0.6</staticSunShadowHeight>
 		<defaultPlacingRot>South</defaultPlacingRot>

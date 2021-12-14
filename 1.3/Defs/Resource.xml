@@ -20,7 +20,7 @@
 
   <ThingDef ParentName="IceResourceBase">
     <defName>Ice_Resource_IceBlocks</defName>
-    <label>Ice</label>
+    <label>Ice 2</label>
     <description>Water which has been frozen to create blocks of ice. Will melt in temperatures above freezing.</description>
     <graphicData>
       <texPath>Things/Item/Resource/RimIce/IceBlocks</texPath>

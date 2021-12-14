@@ -31,13 +31,9 @@ namespace Ice
 		private uint ticks;
 
 		private uint nextWarmupTick;
-
-		public static IceMapComponent Instance { get; private set; }
-
 		public IceMapComponent(Map map)
 			: base(map)
 		{
-			Instance = this;
 		}
 
 		public override void ExposeData()
@@ -53,11 +49,6 @@ namespace Ice
 
 		public override void MapComponentTick()
 		{
-			if (Instance != this)
-			{
-				map.components.Remove(this);
-				return;
-			}
 			ticks++;
 			int num = map.cellIndices.NumGridCells / 360;
 			for (int i = currentIndex; i < map.cellIndices.NumGridCells && i < currentIndex + num; i++)
@@ -162,37 +153,45 @@ namespace Ice
 			}
 		}
 
-		public void RemoveIceFromTile(int mapIndex)
+		public void RemoveIceFromTile(int cellIndex)
 		{
-			IntVec3 vec = map.cellIndices.IndexToCell(mapIndex);
-			TerrainDef terrainDef = null;
-			if (TemporarilyRemovedTerrain.TryGetValue(mapIndex, out var value))
-			{
-				TemporarilyRemovedTerrain.Remove(mapIndex);
-				map.terrainGrid.SetTerrain(vec, value);
-				map.designationManager.allDesignations.Remove(map.designationManager.allDesignations.SingleOrDefault((Designation x) => x.target == vec && x.def == Designations.Ice_DoDigIce));
-				terrainDef = value;
-			}
-			else if (IsFrozen(map.terrainGrid.TerrainAt(mapIndex)))
-			{
-				map.terrainGrid.SetTerrain(vec, IceTerrain.WaterShallow);
-				terrainDef = IceTerrain.WaterShallow;
-			}
-			ThawSpeed.Remove(mapIndex);
-			IceDepth.Remove(mapIndex);
+			try
+            {
+				IntVec3 vec = map.cellIndices.IndexToCell(cellIndex);
+				TerrainDef terrainDef = null;
+				if (TemporarilyRemovedTerrain.TryGetValue(cellIndex, out var value))
+				{
+					TemporarilyRemovedTerrain.Remove(cellIndex);
+					map.terrainGrid.SetTerrain(vec, value);
+					map.designationManager.allDesignations.Remove(map.designationManager.allDesignations.SingleOrDefault((Designation x) => x.target == vec && x.def == Designations.Ice_DoDigIce));
+					terrainDef = value;
+				}
+				else if (IsFrozen(map.terrainGrid.TerrainAt(vec)))
+				{
+					map.terrainGrid.SetTerrain(vec, IceTerrain.WaterShallow);
+					terrainDef = IceTerrain.WaterShallow;
+				}
+				ThawSpeed.Remove(cellIndex);
+				IceDepth.Remove(cellIndex);
 
-			Thing[] array = map.thingGrid.ThingsAt(vec).ToArray();
-			foreach (Thing thing in array)
-			{
-				if (thing is Building && !GenConstruct.TerrainCanSupport(CellRect.SingleCell(vec), map, thing.def))
+				Thing[] array = map.thingGrid.ThingsAt(vec).ToArray();
+				foreach (Thing thing in array)
 				{
-					thing.Destroy();
-				}
-				else if (!(thing is Pawn) && (terrainDef == IceTerrain.WaterDeep || (terrainDef?.defName?.Contains("Deep") ?? false)))
-				{
-					thing.Destroy();
+					if (thing != null)
+                    {
+						if (thing is Building && !GenConstruct.TerrainCanSupport(CellRect.SingleCell(vec), map, thing.def))
+						{
+							thing.Destroy();
+						}
+						else if (!(thing is Pawn) && (terrainDef == IceTerrain.WaterDeep || (terrainDef?.defName?.Contains("Deep") ?? false)))
+						{
+							thing.Destroy();
+						}
+					}
+
 				}
 			}
+            catch { }
 		}
 
 		private void CooldownTile(int mapIndex, float temp, TerrainDef type)

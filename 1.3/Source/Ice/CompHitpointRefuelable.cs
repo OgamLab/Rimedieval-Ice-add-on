@@ -3,9 +3,31 @@ using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace Ice
 {
+	[HarmonyPatch(typeof(ThingDef), "HasComp")]
+	internal class Patch_ThingDef_HasComp
+	{
+		private static bool Prefix(ref bool __result, ThingDef __instance, Type compType)
+		{
+			if (compType != typeof(CompRefuelable))
+			{
+				return true;
+			}
+			for (int i = 0; i < __instance.comps.Count; i++)
+			{
+				if (__instance.comps[i].compClass == compType || __instance.comps[i].compClass.IsSubclassOf(compType))
+				{
+					__result = true;
+					return false;
+				}
+			}
+			__result = false;
+			return false;
+		}
+	}
 	public class CompHitpointRefuelable : CompRefuelable
 	{
 		private CompHeatPusher heatPusher;
@@ -51,6 +73,7 @@ namespace Ice
 		private bool shouldPushHeat;
 		public override void CompTick()
 		{
+			var pawn = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.RandomElement();
 			if (shouldPushHeat)
             {
 				base.CompTick();
@@ -72,7 +95,6 @@ namespace Ice
 				}
 			}
 		}
-
 		private void SetHP(int newHP)
 		{
 			parent.HitPoints = newHP;

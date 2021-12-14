@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "g3JqoyiMTOU4dqz3B//V9oQAD8RrldZ/VQk6PoKWUmfP28cYQoy1BsOeRVvPd9XrvLyk3NMFisSpS32Yrnou6Q==",
+  "dgSpecHash": "Mo0lNaH17+eCjIVlgly8PPW35yDbxdWhj2dp8bh7udJoOe17BsEggafopZHdx4B5a8pGETX+SU4otQUf5TrvIw==",
   "success": true,
-  "projectFilePath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimedieval-Ice-add-on\\1.3\\Source\\Ice\\Ice.csproj",
+  "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimedieval-Ice-add-on\\1.3\\Source\\Ice\\Ice.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vova\\.nuget\\packages\\krafs.publicizer\\1.0.0\\krafs.publicizer.1.0.0.nupkg.sha512",
-    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3132-beta\\krafs.rimworld.ref.1.3.3132-beta.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.publicizer\\1.0.1\\krafs.publicizer.1.0.1.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3209-beta\\krafs.rimworld.ref.1.3.3209-beta.nupkg.sha512",
     "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.1.1\\lib.harmony.2.1.1.nupkg.sha512"
   ],
   "logs": []
